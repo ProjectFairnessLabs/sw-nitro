@@ -9,3 +9,4 @@ AddEventHandler('nitro:__sync', function (boostEnabled, purgeEnabled, lastVehicl
     end
   end
 end)
+

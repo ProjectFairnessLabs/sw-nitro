@@ -1,11 +1,11 @@
 local INPUT_CHARACTER_WHEEL = 19
 local INPUT_VEH_ACCELERATE = 71
-local INPUT_VEH_DUCK = 73
+local INPUT_VEH_SELECT_NEXT_WEAPON = 99
 
 local function IsNitroControlPressed()
   if not IsInputDisabled(2) then
-    DisableControlAction(2, INPUT_VEH_DUCK)
-    return IsDisabledControlPressed(2, INPUT_VEH_DUCK)
+    DisableControlAction(2, INPUT_VEH_SELECT_NEXT_WEAPON)
+    return IsDisabledControlPressed(2, INPUT_VEH_SELECT_NEXT_WEAPON)
   end
 
   return IsControlPressed(0, INPUT_CHARACTER_WHEEL)
@@ -37,6 +37,8 @@ local function NitroLoop(lastVehicle)
     return 0
   end
 
+  InitNitroFuel(vehicle)
+
   local isEnabled = IsNitroControlPressed()
   local isDriving = IsDrivingControlPressed()
   local isRunning = GetIsVehicleEngineRunning(vehicle)
@@ -47,6 +49,7 @@ local function NitroLoop(lastVehicle)
   if isRunning and isEnabled and isFueled then
     if isDriving then
       if not isBoosting then
+        DrainNitroFuel(vehicle, isPurging)
         SetVehicleNitroBoostEnabled(vehicle, true)
         SetVehicleLightTrailEnabled(vehicle, true)
         SetVehicleNitroPurgeEnabled(vehicle, false)

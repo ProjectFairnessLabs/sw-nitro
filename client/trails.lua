@@ -15,8 +15,8 @@ function SetVehicleLightTrailEnabled(vehicle, enabled)
   if enabled then
     local ptfxs = {}
     
-    local leftTrail = CreateVehicleLightTrail(vehicle, GetEntityBoneIndexByName(vehicle, "taillight_l"), 1.0)
-    local rightTrail = CreateVehicleLightTrail(vehicle, GetEntityBoneIndexByName(vehicle, "taillight_r"), 1.0)
+    local leftTrail = CreateVehicleLightTrail(vehicle, GetEntityBoneIndexByName(vehicle, "taillight_l"), 1.15)
+    local rightTrail = CreateVehicleLightTrail(vehicle, GetEntityBoneIndexByName(vehicle, "taillight_r"), 1.15)
     
     table.insert(ptfxs, leftTrail)
     table.insert(ptfxs, rightTrail)

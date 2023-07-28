@@ -2,9 +2,9 @@ local vehicles = {}
 
 function SetNitroBoostScreenEffectsEnabled(enabled)
   if enabled then
-    StopScreenEffect('RaceTurbo')
+    StopScreenEffect('DeathFailNeutralIn')
     StartScreenEffect('RaceTurbo', 0, false)
-    SetTimecycleModifier('rply_motionblur')
+    SetTimecycleModifier('BloomLight')
     ShakeGameplayCam('SKY_DIVING_SHAKE', 0.25)
   else
     StopGameplayCamShaking(true)
